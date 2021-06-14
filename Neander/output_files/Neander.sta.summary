@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clock'
+Slack : -5.133
+TNS   : -179.397
+
+Type  : Slow Model Setup 'estado.t0'
+Slack : -2.521
+TNS   : -8.237
+
+Type  : Slow Model Setup 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -1.432
+TNS   : -8.865
+
+Type  : Slow Model Hold 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -4.543
+TNS   : -37.795
+
+Type  : Slow Model Hold 'estado.t0'
+Slack : -1.574
+TNS   : -1.574
+
+Type  : Slow Model Hold 'clock'
+Slack : -1.533
+TNS   : -2.701
+
+Type  : Slow Model Minimum Pulse Width 'clock'
+Slack : -1.627
+TNS   : -112.730
+
+Type  : Slow Model Minimum Pulse Width 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -1.085
+TNS   : -75.536
+
+Type  : Slow Model Minimum Pulse Width 'estado.t0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clock'
+Slack : -2.398
+TNS   : -73.725
+
+Type  : Fast Model Setup 'estado.t0'
+Slack : -0.840
+TNS   : -2.301
+
+Type  : Fast Model Setup 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -0.650
+TNS   : -2.120
+
+Type  : Fast Model Hold 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -2.210
+TNS   : -14.355
+
+Type  : Fast Model Hold 'clock'
+Slack : -0.939
+TNS   : -2.560
+
+Type  : Fast Model Hold 'estado.t0'
+Slack : -0.734
+TNS   : -0.734
+
+Type  : Fast Model Minimum Pulse Width 'clock'
+Slack : -1.627
+TNS   : -112.730
+
+Type  : Fast Model Minimum Pulse Width 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
+Slack : -0.166
+TNS   : -0.996
+
+Type  : Fast Model Minimum Pulse Width 'estado.t0'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

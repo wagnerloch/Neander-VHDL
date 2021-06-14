@@ -1,0 +1,12 @@
+
+State Machine - |Neander|estado
+Name estado.hlt estado.t7 estado.t6 estado.t5 estado.t4 estado.t3 estado.t2 estado.t1 estado.t0 
+estado.t0 0 0 0 0 0 0 0 0 0 
+estado.t1 0 0 0 0 0 0 0 1 1 
+estado.t2 0 0 0 0 0 0 1 0 1 
+estado.t3 0 0 0 0 0 1 0 0 1 
+estado.t4 0 0 0 0 1 0 0 0 1 
+estado.t5 0 0 0 1 0 0 0 0 1 
+estado.t6 0 0 1 0 0 0 0 0 1 
+estado.t7 0 1 0 0 0 0 0 0 1 
+estado.hlt 1 0 0 0 0 0 0 0 1 
