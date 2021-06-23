@@ -7,6 +7,7 @@ ENTITY PC is
 		clock 			: in std_logic;
 		cargaPC 			: in std_logic;
 		incrementaPC 	: in std_logic;
+		reset				: in std_logic;
 		entrada  		: in std_logic_vector(7 downto 0);
 		saida 			: out std_logic_vector(7 downto 0)
 	);
@@ -17,7 +18,9 @@ BEGIN
 	process (clock)
 	variable count : std_logic_vector(7 downto 0);
 	BEGIN
-		if clock'EVENT and clock = '1' then
+		if reset = '1' then
+			count := "00000000";
+		elsif clock'EVENT and clock = '1' then
 			if cargaPC = '1' then
 				count := entrada;
 			elsif incrementaPC = '1' then

@@ -8,8 +8,8 @@ ENTITY Neander IS
 	PORT(
 		clock 			: in 		STD_LOGIC;
 		reset				: in 		STD_LOGIC;
-		saidaMemoria 	: out   	STD_LOGIC_VECTOR (7 downto 0);
-		saidaAcumulador: out		STD_LOGIC_VECTOR (7 downto 0)
+		acumuladorOut	: out		STD_LOGIC_VECTOR (7 downto 0);		
+		estadoAtual		: out		STD_LOGIC_VECTOR (3 downto 0)
 	);
 END Neander;
 
@@ -17,33 +17,29 @@ ARCHITECTURE Arc OF Neander IS
 
 -- Declaraçao de Sinais
 
-SIGNAL ulaOut 		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL acOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL rdmOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL rdmIn		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL pcOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL muxOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL remOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL endMem		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL dadosMEM	: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL ramOut		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL opcodeout	: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL memIn		: STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL selULA		: STD_LOGIC_VECTOR(2 downto 0);
-SIGNAL nzout		: STD_LOGIC_VECTOR(1 downto 0);
-SIGNAL readSig		: STD_LOGIC;
-SIGNAL writeSig	: STD_LOGIC;
-SIGNAL cargaRDM	: STD_LOGIC;
-SIGNAL cargaREM	: STD_LOGIC;
-SIGNAL incPC		: STD_LOGIC;
-SIGNAL selMux		: STD_LOGIC;
-SIGNAL cargaPC		: STD_LOGIC;
-SIGNAL cargaAC		: STD_LOGIC;
-SIGNAL cargaNZ 	: STD_LOGIC;
-SIGNAL cargaRI 	: STD_LOGIC;
-SIGNAL negative	: STD_LOGIC;
-SIGNAL zero			: STD_LOGIC;
-SIGNAL rw			: STD_LOGIC;
+SIGNAL ulaOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL acOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL rdmOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL pcOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL muxOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL remOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL memIn				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL opcodeout			: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL memOut				: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL selULA				: STD_LOGIC_VECTOR(2 downto 0);
+SIGNAL nzout				: STD_LOGIC_VECTOR(1 downto 0);
+SIGNAL cargaAC				: STD_LOGIC;
+SIGNAL cargaNZ 			: STD_LOGIC;
+SIGNAL incrementaPC		: STD_LOGIC;
+SIGNAL cargaPC				: STD_LOGIC;
+SIGNAL sel					: STD_LOGIC;
+SIGNAL cargaREM			: STD_LOGIC;
+SIGNAL cargaRDM			: STD_LOGIC;
+SIGNAL cargaRI 			: STD_LOGIC;
+SIGNAL readSignal			: STD_LOGIC;
+SIGNAL writeSignal		: STD_LOGIC;
+SIGNAL negative			: STD_LOGIC;
+SIGNAL zero					: STD_LOGIC;
 
 -- Declaraçao de Estados e Instruções
 
@@ -91,14 +87,17 @@ COMPONENT PC PORT(
 		clock 			: in std_logic;
 		cargaPC 			: in std_logic;
 		incrementaPC 	: in std_logic;
+		reset				: in std_logic;
 		entrada  		: in std_logic_vector(7 downto 0);
 		saida 			: out std_logic_vector(7 downto 0)
 	);
 END COMPONENT;
 
 COMPONENT RAM PORT(		
-		lerEscrever		: in std_logic;		
+		ler				: in std_logic;	
+		escrever			: in std_logic;
 		clock				: in std_logic;
+		reset				: in std_logic;
 		entrada			: in std_logic_vector(7 downto 0);
 		endereco 		: in std_logic_vector(7 downto 0);
 		saida				: out std_logic_vector(7 downto 0)
@@ -143,7 +142,7 @@ BEGIN
 	UAL : ULA PORT MAP (
 		selUAL			=> selULA,
 		X					=> acOut,
-		Y					=> ramOut,
+		Y					=> memOut,
 		saida				=> ulaOut,
 		negativo 		=> negative,
 		zero				=> zero
@@ -152,15 +151,16 @@ BEGIN
 	PROGRAM_COUNTER : PC PORT MAP (
 		clock				=> clock,
 		cargaPC			=> cargaPC,
-		incrementaPC	=> incPC,
-		entrada			=> ramOut,
+		incrementaPC	=> incrementaPC,
+		reset				=> reset,
+		entrada			=> memOut,
 		saida				=> pcOut
 	);
 	
 	SELETOR : MUX21 PORT MAP (
 		a					=> pcOut,
-		b					=> ramOut,
-		sel				=> selMux,
+		b					=> memOut,
+		sel				=> sel,
 		s					=> muxOut
 	);
 	
@@ -172,18 +172,20 @@ BEGIN
 	);
 	
 	MEMORIA : RAM PORT MAP (
-		lerEscrever		=> rw,
+		ler				=> readSignal,
+		escrever			=> writeSignal,
 		clock				=> clock,
+		reset				=> reset,
 		entrada			=> memIn,
-		endereco			=> endMem,
-		saida				=> ramOut
+		endereco			=> remOut,
+		saida				=> memOut
 	);
 	
 	REGRDM : RDM PORT MAP (
 		clock				=> clock,
 		cargaRDM			=> cargaRDM,
-		entrada			=> rdmIn,
-		saida				=> rdmOut
+		entrada			=> acOut,
+		saida				=> memIn
 	);
 	
 	NEGATIVOZERO : NZ PORT MAP (
@@ -197,7 +199,7 @@ BEGIN
 	OPCODE : INST PORT MAP (
 		clock				=> clock, 	
 		cargaRI			=> cargaRI,
-		entrada  		=> ramOut,
+		entrada  		=> memOut,
 		saida 			=> opcodeout
 	);
 	
@@ -231,99 +233,102 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
-	PROCESS (cargaAC, cargaNZ, cargaRI, cargaPC, incPC, selMux, cargaREM, cargaRDM, rw) BEGIN
+	PROCESS (cargaAC, cargaNZ, cargaRI, cargaPC, incrementaPC, sel, cargaREM, cargaRDM, estado, readSignal, writeSignal, instrucao) BEGIN
 		CASE estado IS
 			
 			when t0 =>
+				estadoAtual			<= "0000";
 				cargaAC 				<= '0';
 				cargaNZ 				<= '0';
 				cargaRI 				<= '0';
 				cargaPC 				<= '0';
-				incPC   				<= '0';
-				selMux  				<= '0';
+				incrementaPC 		<= '0';
+				sel	  				<= '0';
 				cargaREM				<= '1';
 				cargaRDM				<= '0';
-				rw						<= '0';
+				readSignal			<= '0';
+				writeSignal			<= '0';
+				writeSignal			<= '0';
 				proximoEstado		<= t1;
 				
 			when t1 =>
+				estadoAtual			<= "0001";
 				cargaREM				<= '0';
-				memIn					<= rdmOut;
-				endMem				<= remOut;
-				incPC					<= '1';
+				incrementaPC		<= '1';
+				readSignal			<= '1';
 				proximoEstado		<= t2;
 				
 			when t2 =>
-				incPC					<= '0';
+				estadoAtual			<= "0010";
+				readSignal			<= '0';
+				incrementaPC		<= '0';
 				cargaRI				<= '1';
 				proximoEstado		<= t3;
 				
 			when t3 =>
-				incPC					<= '0';
+				estadoAtual			<= "0011";
 				cargaRI				<= '0';
 				IF (instrucao = STA OR instrucao = LDA OR instrucao = ADD OR instrucao = OROP OR instrucao = ANDOP OR instrucao = JMP) THEN
-					selMux			<= '0';
 					cargaREM			<= '1';
+					sel				<= '0';
 					proximoEstado	<= t4;
 				ELSIF (instrucao = NOTOP) THEN
 					selULA			<= "011";
 					cargaAC			<= '1';
 					cargaNZ			<= '1';
 					proximoEstado	<= t0;
-				ELSIF (instrucao = JN AND nzout(0) = '0') THEN
-					incPC				<= '1';
+				ELSIF (instrucao = JN AND nzout(0) = '0') THEN --Positivo
+					incrementaPC	<= '1';
 					proximoEstado 	<= t0;
-				ELSIF (instrucao = JN AND nzout(0) = '1') THEN
-					selMux			<= '0';
+				ELSIF (instrucao = JN AND nzout(0) = '1') THEN --Negativo
+					sel				<= '0';
 					cargaREM			<= '1';
 					proximoEstado	<= t4;
-				ELSIF (instrucao = JZ AND nzout(1) = '0') THEN
-					incPC				<= '1';
+				ELSIF (instrucao = JZ AND nzout(1) = '0') THEN --Diferente de Zero
+					incrementaPC	<= '1';
 					proximoEstado	<= t0;
-				ELSIF (instrucao = JZ AND nzout(1) = '1') THEN
-					selMux			<= '0';
+				ELSIF (instrucao = JZ AND nzout(1) = '1') THEN --Zero
+					sel				<= '0';
 					cargaREM			<= '1';
 					proximoEstado	<= t4;
 				ELSIF (instrucao = NOP) THEN
 					proximoEstado	<= t0;
 				ELSIF (instrucao = HLT) THEN
-					incPC				<= '0';
 					proximoEstado	<= hlt;
 				ELSE
 					proximoEstado <= t4;
 				END IF;
 				
 			when t4 =>
-				selMux				<= '0';
-				incPC					<= '0';
+				estadoAtual			<= "0100";
+				cargaREM				<= '0';
+				sel					<= '0';
+				incrementaPC		<= '0';
 				cargaAC				<= '0';
 				cargaNZ				<= '0';
-				cargaREM				<= '0';
 				IF (instrucao = STA OR instrucao = LDA OR instrucao = ADD OR instrucao = OROP OR instrucao = ANDOP) THEN
-					memIn				<= rdmOut;
-					endMem			<= remOut;
-					incPC				<= '1';
+					readSignal		<= '1';
+					incrementaPC	<= '1';
 					proximoEstado	<= t5;
 				ELSIF (instrucao = JMP) THEN
-					memIn				<= rdmOut;
-					endMem			<= remOut;
+					readSignal		<= '1';
 					proximoEstado	<= t5;
 				ELSIF (instrucao = JN AND nzout(0) = '1') THEN
-					memIn				<= rdmOut;
-					endMem			<= remOut;
+					readSignal		<= '1';
 					proximoEstado	<= t5;
 				ELSIF (instrucao = JZ AND nzout(1) = '1') THEN
-					memIn				<= rdmOut;
-					endMem			<= remOut;
+					readSignal		<= '1';
 					proximoEstado	<= t5;
 				ELSE
 					proximoEstado	<= t5;
 				END IF;
 				
 			when t5 =>
-				incPC					<= '0';
+				estadoAtual			<= "0101";
+				readSignal			<= '0';
+				incrementaPC		<= '0';
 				IF (instrucao = STA OR instrucao = LDA OR instrucao = ADD OR instrucao = OROP OR instrucao = ANDOP) THEN
-					selMux			<= '1';
+					sel				<= '1';
 					cargaREM			<= '1';
 					proximoEstado	<= t6;
 				ELSIF (instrucao = JMP) THEN
@@ -340,32 +345,29 @@ BEGIN
 				END IF;
 				
 			when t6 =>
-				incPC					<= '0';
-				selMux				<= '0';
+				estadoAtual			<= "0110";
+				sel					<= '0';
 				cargaREM				<= '0';
-				cargaPC				<= '0';
-				IF (instrucao = LDA) THEN
+				IF (instrucao = STA) THEN
 					cargaRDM			<= '1';
 					proximoEstado	<= t7;
 				ELSIF (instrucao = LDA OR instrucao = ADD OR instrucao = OROP OR instrucao = ANDOP) THEN
-					memIn				<= rdmOut;
-					endMem			<= remOut;
+					readSignal		<= '1'; --Ler da memória
 					proximoEstado	<= t7;
 				ELSE
 					proximoEstado	<= t7;
 				END IF;
 			
 			when t7 =>
+				estadoAtual			<= "0111";
+				readSignal			<= '0';
 				cargaRDM				<= '0';
-				incPC					<= '0';
 				IF (instrucao = STA) THEN
-					memIn				<= acOut;
-					endMem			<= remOut;
-					rw					<= '1';
+					writeSignal		<= '1'; --escrever na Memória
 					proximoEstado	<= t0;
 				ELSIF (instrucao = LDA) THEN
 					selULA			<= "100";
-					cargaAC			<= '1';
+					cargaAC			<= '1';					
 					cargaNZ			<= '1';
 					proximoEstado	<= t0;
 				ELSIF (instrucao = ADD) THEN
@@ -388,12 +390,12 @@ BEGIN
 				END IF;
 				
 			when hlt =>
-				incPC					<= '0';
+				estadoAtual			<= "1111";
+				incrementaPC		<= '0';
 				proximoEstado		<= hlt;				
 			
 		END CASE;
 	END PROCESS;
 		
-	saidaMemoria 		<= ramOut;
-	saidaAcumulador 	<= acOut;
+	acumuladorOut			<= acOut;
 END Arc;

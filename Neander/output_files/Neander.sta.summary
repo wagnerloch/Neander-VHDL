@@ -3,72 +3,96 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'clock'
-Slack : -5.133
-TNS   : -179.397
+Slack : -5.595
+TNS   : -411.541
 
 Type  : Slow Model Setup 'estado.t0'
-Slack : -2.521
-TNS   : -8.237
+Slack : -2.334
+TNS   : -8.584
 
 Type  : Slow Model Setup 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -1.432
-TNS   : -8.865
+Slack : -2.114
+TNS   : -9.739
+
+Type  : Slow Model Setup 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : -1.990
+TNS   : -4.064
 
 Type  : Slow Model Hold 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -4.543
-TNS   : -37.795
-
-Type  : Slow Model Hold 'estado.t0'
-Slack : -1.574
-TNS   : -1.574
+Slack : -4.046
+TNS   : -18.623
 
 Type  : Slow Model Hold 'clock'
-Slack : -1.533
-TNS   : -2.701
+Slack : -1.857
+TNS   : -7.165
+
+Type  : Slow Model Hold 'estado.t0'
+Slack : -1.185
+TNS   : -1.185
+
+Type  : Slow Model Hold 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : -0.115
+TNS   : -0.170
 
 Type  : Slow Model Minimum Pulse Width 'clock'
-Slack : -1.627
-TNS   : -112.730
+Slack : -1.380
+TNS   : -175.380
 
 Type  : Slow Model Minimum Pulse Width 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -1.085
-TNS   : -75.536
+Slack : -0.961
+TNS   : -40.438
+
+Type  : Slow Model Minimum Pulse Width 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : 0.500
+TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'estado.t0'
 Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'clock'
-Slack : -2.398
-TNS   : -73.725
-
-Type  : Fast Model Setup 'estado.t0'
-Slack : -0.840
-TNS   : -2.301
+Slack : -2.121
+TNS   : -107.475
 
 Type  : Fast Model Setup 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -0.650
-TNS   : -2.120
+Slack : -0.901
+TNS   : -3.567
+
+Type  : Fast Model Setup 'estado.t0'
+Slack : -0.760
+TNS   : -2.302
+
+Type  : Fast Model Setup 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : -0.575
+TNS   : -1.547
 
 Type  : Fast Model Hold 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -2.210
-TNS   : -14.355
+Slack : -2.084
+TNS   : -8.050
 
 Type  : Fast Model Hold 'clock'
-Slack : -0.939
-TNS   : -2.560
+Slack : -1.212
+TNS   : -7.657
 
 Type  : Fast Model Hold 'estado.t0'
-Slack : -0.734
-TNS   : -0.734
+Slack : -0.534
+TNS   : -0.534
+
+Type  : Fast Model Hold 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : -0.067
+TNS   : -0.067
 
 Type  : Fast Model Minimum Pulse Width 'clock'
-Slack : -1.627
-TNS   : -112.730
+Slack : -1.380
+TNS   : -175.380
 
 Type  : Fast Model Minimum Pulse Width 'INST:OPCODE|Reg8Bits:CON|q_temp[4]'
-Slack : -0.166
-TNS   : -0.996
+Slack : -0.136
+TNS   : -2.720
+
+Type  : Fast Model Minimum Pulse Width 'ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7]'
+Slack : 0.500
+TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'estado.t0'
 Slack : 0.500

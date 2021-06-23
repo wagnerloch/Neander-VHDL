@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Neander
-Mon Jun 14 10:21:40 2021
+Tue Jun 22 15:29:47 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,24 +13,20 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. State Machine - |Neander|estado
- 10. User-Specified and Inferred Latches
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Registers Packed Into Inferred Megafunctions
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for RAM:MEMORIA|altsyncram:MEMORY_rtl_0|altsyncram_qhd1:auto_generated
- 16. Parameter Settings for Inferred Entity Instance: RAM:MEMORIA|altsyncram:MEMORY_rtl_0
- 17. altsyncram Parameter Settings by Entity Instance
- 18. Port Connectivity Checks: "INST:OPCODE|Reg8Bits:CON"
- 19. Port Connectivity Checks: "INST:OPCODE"
- 20. Port Connectivity Checks: "NZ:NEGATIVOZERO|Reg2Bits:CON"
- 21. Port Connectivity Checks: "RDM:REGRDM|Reg8Bits:CON"
- 22. Port Connectivity Checks: "REMReg:REGREM|Reg8Bits:CON"
- 23. Port Connectivity Checks: "ACC:ACUMULADOR|Reg8Bits:CON"
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+  8. State Machine - |Neander|estado
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "INST:OPCODE|Reg8Bits:CON"
+ 15. Port Connectivity Checks: "INST:OPCODE"
+ 16. Port Connectivity Checks: "NZ:NEGATIVOZERO|Reg2Bits:CON"
+ 17. Port Connectivity Checks: "RDM:REGRDM|Reg8Bits:CON"
+ 18. Port Connectivity Checks: "REMReg:REGREM|Reg8Bits:CON"
+ 19. Port Connectivity Checks: "ACC:ACUMULADOR|Reg8Bits:CON"
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -56,18 +52,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 14 10:21:40 2021           ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 22 15:29:47 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Neander                                         ;
 ; Top-level Entity Name              ; Neander                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 134                                             ;
-;     Total combinational functions  ; 126                                             ;
-;     Dedicated logic registers      ; 30                                              ;
-; Total registers                    ; 30                                              ;
-; Total pins                         ; 18                                              ;
+; Total logic elements               ; 364                                             ;
+;     Total combinational functions  ; 252                                             ;
+;     Dedicated logic registers      ; 174                                             ;
+; Total registers                    ; 174                                             ;
+; Total pins                         ; 14                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 128                                             ;
+; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -168,34 +164,24 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; Neander.vhd                      ; yes             ; User VHDL File               ; C:/Users/wagne/Desktop/Neander/Neander.vhd                              ;         ;
-; acc.vhd                          ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/acc.vhd                                  ;         ;
-; reg8bits.vhd                     ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/reg8bits.vhd                             ;         ;
-; ula.vhd                          ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/ula.vhd                                  ;         ;
-; pc.vhd                           ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/pc.vhd                                   ;         ;
-; mux21.vhd                        ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/mux21.vhd                                ;         ;
-; remreg.vhd                       ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/remreg.vhd                               ;         ;
-; ram.vhd                          ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/ram.vhd                                  ;         ;
-; rdm.vhd                          ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/rdm.vhd                                  ;         ;
-; nz.vhd                           ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/nz.vhd                                   ;         ;
-; reg2bits.vhd                     ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/reg2bits.vhd                             ;         ;
-; inst.vhd                         ; yes             ; Auto-Found VHDL File         ; C:/Users/wagne/Desktop/Neander/inst.vhd                                 ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_qhd1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/wagne/Desktop/Neander/db/altsyncram_qhd1.tdf                   ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                ; Library ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
+; Neander.vhd                      ; yes             ; User VHDL File        ; C:/Users/wagne/Desktop/Neander/Neander.vhd  ;         ;
+; acc.vhd                          ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/acc.vhd      ;         ;
+; reg8bits.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/reg8bits.vhd ;         ;
+; ula.vhd                          ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/ula.vhd      ;         ;
+; pc.vhd                           ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/pc.vhd       ;         ;
+; mux21.vhd                        ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/mux21.vhd    ;         ;
+; remreg.vhd                       ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/remreg.vhd   ;         ;
+; ram.vhd                          ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/ram.vhd      ;         ;
+; rdm.vhd                          ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/rdm.vhd      ;         ;
+; nz.vhd                           ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/nz.vhd       ;         ;
+; reg2bits.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/reg2bits.vhd ;         ;
+; inst.vhd                         ; yes             ; Auto-Found VHDL File  ; C:/Users/wagne/Desktop/Neander/inst.vhd     ;         ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -203,63 +189,53 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 134   ;
+; Estimated Total logic elements              ; 364   ;
 ;                                             ;       ;
-; Total combinational functions               ; 126   ;
+; Total combinational functions               ; 252   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 58    ;
-;     -- 3 input functions                    ; 49    ;
-;     -- <=2 input functions                  ; 19    ;
+;     -- 4 input functions                    ; 155   ;
+;     -- 3 input functions                    ; 41    ;
+;     -- <=2 input functions                  ; 56    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 116   ;
+;     -- normal mode                          ; 242   ;
 ;     -- arithmetic mode                      ; 10    ;
 ;                                             ;       ;
-; Total registers                             ; 30    ;
-;     -- Dedicated logic registers            ; 30    ;
+; Total registers                             ; 174   ;
+;     -- Dedicated logic registers            ; 174   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 18    ;
-; Total memory bits                           ; 128   ;
+; I/O pins                                    ; 14    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 38    ;
-; Total fan-out                               ; 585   ;
-; Average fan-out                             ; 3.21  ;
+; Maximum fan-out                             ; 174   ;
+; Total fan-out                               ; 1471  ;
+; Average fan-out                             ; 3.34  ;
 +---------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
-; |Neander                                  ; 126 (79)          ; 30 (9)       ; 128         ; 0            ; 0       ; 0         ; 18   ; 0            ; |Neander                                                                    ; work         ;
-;    |ACC:ACUMULADOR|                       ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ACC:ACUMULADOR                                                     ; work         ;
-;       |Reg8Bits:CON|                      ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ACC:ACUMULADOR|Reg8Bits:CON                                        ; work         ;
-;    |INST:OPCODE|                          ; 0 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|INST:OPCODE                                                        ; work         ;
-;       |Reg8Bits:CON|                      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|INST:OPCODE|Reg8Bits:CON                                           ; work         ;
-;    |MUX21:SELETOR|                        ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|MUX21:SELETOR                                                      ; work         ;
-;    |NZ:NEGATIVOZERO|                      ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|NZ:NEGATIVOZERO                                                    ; work         ;
-;       |Reg2Bits:CON|                      ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|NZ:NEGATIVOZERO|Reg2Bits:CON                                       ; work         ;
-;    |PC:PROGRAM_COUNTER|                   ; 7 (7)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|PC:PROGRAM_COUNTER                                                 ; work         ;
-;    |RAM:MEMORIA|                          ; 0 (0)             ; 0 (0)        ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RAM:MEMORIA                                                        ; work         ;
-;       |altsyncram:MEMORY_rtl_0|           ; 0 (0)             ; 0 (0)        ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RAM:MEMORIA|altsyncram:MEMORY_rtl_0                                ; work         ;
-;          |altsyncram_qhd1:auto_generated| ; 0 (0)             ; 0 (0)        ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RAM:MEMORIA|altsyncram:MEMORY_rtl_0|altsyncram_qhd1:auto_generated ; work         ;
-;    |REMReg:REGREM|                        ; 0 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|REMReg:REGREM                                                      ; work         ;
-;       |Reg8Bits:CON|                      ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|REMReg:REGREM|Reg8Bits:CON                                         ; work         ;
-;    |ULA:UAL|                              ; 36 (36)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ULA:UAL                                                            ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+
+; |Neander                   ; 252 (62)          ; 174 (9)      ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |Neander                              ; work         ;
+;    |ACC:ACUMULADOR|        ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ACC:ACUMULADOR               ; work         ;
+;       |Reg8Bits:CON|       ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ACC:ACUMULADOR|Reg8Bits:CON  ; work         ;
+;    |INST:OPCODE|           ; 0 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|INST:OPCODE                  ; work         ;
+;       |Reg8Bits:CON|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|INST:OPCODE|Reg8Bits:CON     ; work         ;
+;    |MUX21:SELETOR|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|MUX21:SELETOR                ; work         ;
+;    |NZ:NEGATIVOZERO|       ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|NZ:NEGATIVOZERO              ; work         ;
+;       |Reg2Bits:CON|       ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|NZ:NEGATIVOZERO|Reg2Bits:CON ; work         ;
+;    |PC:PROGRAM_COUNTER|    ; 5 (5)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|PC:PROGRAM_COUNTER           ; work         ;
+;    |RAM:MEMORIA|           ; 145 (145)         ; 136 (136)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RAM:MEMORIA                  ; work         ;
+;    |RDM:REGRDM|            ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RDM:REGRDM                   ; work         ;
+;       |Reg8Bits:CON|       ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|RDM:REGRDM|Reg8Bits:CON      ; work         ;
+;    |REMReg:REGREM|         ; 0 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|REMReg:REGREM                ; work         ;
+;       |Reg8Bits:CON|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|REMReg:REGREM|Reg8Bits:CON   ; work         ;
+;    |ULA:UAL|               ; 36 (36)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Neander|ULA:UAL                      ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                  ;
-+-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; RAM:MEMORIA|altsyncram:MEMORY_rtl_0|altsyncram_qhd1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16           ; 8            ; 16           ; 8            ; 128  ; None ;
-+-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
 Encoding Type:  One-Hot
@@ -285,29 +261,19 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+---------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
 +-----------------------------------------------------+---------------------+------------------------+
-; rw                                                  ; Selector27          ; yes                    ;
-; memIn[0]                                            ; Selector28          ; yes                    ;
-; endMem[0]                                           ; Selector28          ; yes                    ;
-; endMem[1]                                           ; Selector28          ; yes                    ;
-; endMem[2]                                           ; Selector28          ; yes                    ;
-; endMem[3]                                           ; Selector28          ; yes                    ;
-; memIn[1]                                            ; Selector28          ; yes                    ;
-; memIn[2]                                            ; Selector28          ; yes                    ;
-; memIn[3]                                            ; Selector28          ; yes                    ;
-; memIn[4]                                            ; Selector28          ; yes                    ;
-; memIn[5]                                            ; Selector28          ; yes                    ;
-; memIn[6]                                            ; Selector28          ; yes                    ;
-; memIn[7]                                            ; Selector28          ; yes                    ;
-; selULA[1]                                           ; Selector0           ; yes                    ;
-; selULA[0]                                           ; Selector0           ; yes                    ;
-; selULA[2]                                           ; Selector0           ; yes                    ;
-; cargaAC                                             ; Selector37          ; yes                    ;
-; cargaRI                                             ; WideOr1             ; yes                    ;
-; cargaNZ                                             ; Selector37          ; yes                    ;
-; selMux                                              ; Selector33          ; yes                    ;
-; cargaREM                                            ; Selector32          ; yes                    ;
-; cargaPC                                             ; Selector34          ; yes                    ;
-; Number of user-specified and inferred latches = 22  ;                     ;                        ;
+; selULA[1]                                           ; Selector2           ; yes                    ;
+; selULA[0]                                           ; Selector2           ; yes                    ;
+; selULA[2]                                           ; Selector2           ; yes                    ;
+; cargaAC                                             ; Selector23          ; yes                    ;
+; writeSignal                                         ; Selector13          ; yes                    ;
+; cargaNZ                                             ; Selector23          ; yes                    ;
+; cargaRI                                             ; WideOr4             ; yes                    ;
+; sel                                                 ; Selector17          ; yes                    ;
+; cargaREM                                            ; Selector16          ; yes                    ;
+; cargaRDM                                            ; Selector14          ; yes                    ;
+; cargaPC                                             ; Selector20          ; yes                    ;
+; incrementaPC                                        ; Selector19          ; yes                    ;
+; Number of user-specified and inferred latches = 12  ;                     ;                        ;
 +-----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -317,7 +283,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------------------------------------------------+
 ; Register name                          ; Reason for Removal                                ;
 +----------------------------------------+---------------------------------------------------+
-; RDM:REGRDM|Reg8Bits:CON|q_temp[0..7]   ; Stuck at GND due to stuck port data_in            ;
+; RAM:MEMORIA|saida[0]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[1]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[2]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[3]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[4]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[5]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[6]~en                ; Lost fanout                                       ;
+; RAM:MEMORIA|saida[7]~en                ; Lost fanout                                       ;
 ; PC:PROGRAM_COUNTER|count[4..7]         ; Lost fanout                                       ;
 ; NZ:NEGATIVOZERO|Reg2Bits:CON|q_temp[0] ; Merged with ACC:ACUMULADOR|Reg8Bits:CON|q_temp[7] ;
 ; Total Number of Removed Registers = 13 ;                                                   ;
@@ -329,23 +302,55 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 30    ;
+; Total registers                              ; 174   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 4     ;
-; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Clear ; 117   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 165   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions              ;
-+-------------------------+--------------------------+------+
-; Register Name           ; Megafunction             ; Type ;
-+-------------------------+--------------------------+------+
-; RAM:MEMORIA|saida[0..7] ; RAM:MEMORIA|MEMORY_rtl_0 ; RAM  ;
-+-------------------------+--------------------------+------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; RAM:MEMORIA|MEMORY[1][0]                ; 1       ;
+; RAM:MEMORIA|MEMORY[14][0]               ; 1       ;
+; RAM:MEMORIA|MEMORY[7][0]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][0]               ; 1       ;
+; RAM:MEMORIA|MEMORY[5][1]                ; 1       ;
+; RAM:MEMORIA|MEMORY[1][1]                ; 1       ;
+; RAM:MEMORIA|MEMORY[3][1]                ; 1       ;
+; RAM:MEMORIA|MEMORY[13][1]               ; 1       ;
+; RAM:MEMORIA|MEMORY[11][2]               ; 1       ;
+; RAM:MEMORIA|MEMORY[7][2]                ; 1       ;
+; RAM:MEMORIA|MEMORY[3][2]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][3]               ; 1       ;
+; RAM:MEMORIA|MEMORY[7][3]                ; 1       ;
+; RAM:MEMORIA|MEMORY[1][3]                ; 1       ;
+; RAM:MEMORIA|MEMORY[3][3]                ; 1       ;
+; RAM:MEMORIA|MEMORY[9][4]                ; 1       ;
+; RAM:MEMORIA|MEMORY[13][4]               ; 1       ;
+; RAM:MEMORIA|MEMORY[6][4]                ; 1       ;
+; RAM:MEMORIA|MEMORY[2][4]                ; 1       ;
+; RAM:MEMORIA|MEMORY[4][4]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][4]               ; 1       ;
+; RAM:MEMORIA|MEMORY[6][5]                ; 1       ;
+; RAM:MEMORIA|MEMORY[9][5]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][5]               ; 1       ;
+; RAM:MEMORIA|MEMORY[2][5]                ; 1       ;
+; RAM:MEMORIA|MEMORY[0][5]                ; 1       ;
+; RAM:MEMORIA|MEMORY[13][5]               ; 1       ;
+; RAM:MEMORIA|MEMORY[9][6]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][6]               ; 1       ;
+; RAM:MEMORIA|MEMORY[9][7]                ; 1       ;
+; RAM:MEMORIA|MEMORY[11][7]               ; 1       ;
+; RAM:MEMORIA|MEMORY[4][7]                ; 1       ;
+; Total number of inverted registers = 32 ;         ;
++-----------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -353,100 +358,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Neander|PC:PROGRAM_COUNTER|count[0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Neander|selULA[1]                   ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Neander|ULA:UAL|Mux7                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Neander|PC:PROGRAM_COUNTER|count[4] ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; Yes        ; |Neander|RAM:MEMORIA|saida[6]~reg0   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Neander|selULA[0]                   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Neander|ULA:UAL|Mux0                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------+
-; Source assignments for RAM:MEMORIA|altsyncram:MEMORY_rtl_0|altsyncram_qhd1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------+
-; Assignment                      ; Value              ; From ; To                          ;
-+---------------------------------+--------------------+------+-----------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                           ;
-+---------------------------------+--------------------+------+-----------------------------+
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: RAM:MEMORIA|altsyncram:MEMORY_rtl_0 ;
-+------------------------------------+----------------------+--------------------------+
-; Parameter Name                     ; Value                ; Type                     ;
-+------------------------------------+----------------------+--------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                  ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY               ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY             ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE             ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE           ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                  ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                  ;
-; WIDTH_A                            ; 8                    ; Untyped                  ;
-; WIDTHAD_A                          ; 4                    ; Untyped                  ;
-; NUMWORDS_A                         ; 16                   ; Untyped                  ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                  ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                  ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                  ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                  ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                  ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                  ;
-; WIDTH_B                            ; 8                    ; Untyped                  ;
-; WIDTHAD_B                          ; 4                    ; Untyped                  ;
-; NUMWORDS_B                         ; 16                   ; Untyped                  ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                  ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                  ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                  ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                  ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                  ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                  ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                  ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                  ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                  ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                  ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                  ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                  ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                  ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                  ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                  ;
-; BYTE_SIZE                          ; 8                    ; Untyped                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                  ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                  ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                  ;
-; INIT_FILE                          ; UNUSED               ; Untyped                  ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                  ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                  ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                  ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                  ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                  ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                  ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                  ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                  ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                  ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                  ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                  ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                  ;
-; CBXI_PARAMETER                     ; altsyncram_qhd1      ; Untyped                  ;
-+------------------------------------+----------------------+--------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                ;
-+-------------------------------------------+-------------------------------------+
-; Name                                      ; Value                               ;
-+-------------------------------------------+-------------------------------------+
-; Number of entity instances                ; 1                                   ;
-; Entity Instance                           ; RAM:MEMORIA|altsyncram:MEMORY_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                           ;
-;     -- WIDTH_A                            ; 8                                   ;
-;     -- NUMWORDS_A                         ; 16                                  ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                        ;
-;     -- WIDTH_B                            ; 8                                   ;
-;     -- NUMWORDS_B                         ; 16                                  ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                              ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                        ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                           ;
-+-------------------------------------------+-------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -508,7 +424,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -518,98 +434,45 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 14 10:21:37 2021
+    Info: Processing started: Tue Jun 22 15:29:45 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Neander -c Neander
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file neander.vhd
     Info (12022): Found design unit 1: Neander-Arc
     Info (12023): Found entity 1: Neander
 Info (12127): Elaborating entity "Neander" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at Neander.vhd(23): used implicit default value for signal "rdmIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10492): VHDL Process Statement warning at Neander.vhd(235): signal "estado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(251): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(252): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(264): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(268): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(273): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(273): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(276): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(276): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(280): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at Neander.vhd(280): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(283): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at Neander.vhd(283): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(287): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(289): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(302): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(303): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(304): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(307): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(308): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(309): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(311): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(311): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(312): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(313): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(315): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(315): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(316): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(317): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(325): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(329): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(332): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(332): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(335): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(335): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(347): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(350): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(351): signal "rdmOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(352): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(361): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(362): signal "acOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(363): signal "remOut" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(366): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(371): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(376): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at Neander.vhd(381): signal "instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaAC", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaNZ", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaRI", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaPC", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "selMux", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaREM", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "cargaRDM", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "rw", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "memIn", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "endMem", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Neander.vhd(234): inferring latch(es) for signal or variable "selULA", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "selULA[0]" at Neander.vhd(234)
-Info (10041): Inferred latch for "selULA[1]" at Neander.vhd(234)
-Info (10041): Inferred latch for "selULA[2]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[0]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[1]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[2]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[3]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[4]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[5]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[6]" at Neander.vhd(234)
-Info (10041): Inferred latch for "endMem[7]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[0]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[1]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[2]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[3]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[4]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[5]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[6]" at Neander.vhd(234)
-Info (10041): Inferred latch for "memIn[7]" at Neander.vhd(234)
-Info (10041): Inferred latch for "rw" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaRDM" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaREM" at Neander.vhd(234)
-Info (10041): Inferred latch for "selMux" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaPC" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaRI" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaNZ" at Neander.vhd(234)
-Info (10041): Inferred latch for "cargaAC" at Neander.vhd(234)
+Warning (10492): VHDL Process Statement warning at Neander.vhd(287): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Neander.vhd(290): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Neander.vhd(316): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Neander.vhd(319): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Neander.vhd(337): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Neander.vhd(340): signal "nzout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaAC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaNZ", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaRI", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaPC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "incrementaPC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "sel", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaREM", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "cargaRDM", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "readSignal", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "writeSignal", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Neander.vhd(236): inferring latch(es) for signal or variable "selULA", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "selULA[0]" at Neander.vhd(236)
+Info (10041): Inferred latch for "selULA[1]" at Neander.vhd(236)
+Info (10041): Inferred latch for "selULA[2]" at Neander.vhd(236)
+Info (10041): Inferred latch for "writeSignal" at Neander.vhd(236)
+Info (10041): Inferred latch for "readSignal" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaRDM" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaREM" at Neander.vhd(236)
+Info (10041): Inferred latch for "sel" at Neander.vhd(236)
+Info (10041): Inferred latch for "incrementaPC" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaPC" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaRI" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaNZ" at Neander.vhd(236)
+Info (10041): Inferred latch for "cargaAC" at Neander.vhd(236)
 Warning (12125): Using design file acc.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: ACC-arc
     Info (12023): Found entity 1: ACC
@@ -629,6 +492,7 @@ Warning (12125): Using design file pc.vhd, which is not specified as a design fi
     Info (12022): Found design unit 1: PC-arc
     Info (12023): Found entity 1: PC
 Info (12128): Elaborating entity "PC" for hierarchy "PC:PROGRAM_COUNTER"
+Warning (10492): VHDL Process Statement warning at pc.vhd(21): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (12125): Using design file mux21.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: MUX21-arq_Mux21
     Info (12023): Found entity 1: MUX21
@@ -641,7 +505,8 @@ Warning (12125): Using design file ram.vhd, which is not specified as a design f
     Info (12022): Found design unit 1: RAM-arc
     Info (12023): Found entity 1: RAM
 Info (12128): Elaborating entity "RAM" for hierarchy "RAM:MEMORIA"
-Warning (10492): VHDL Process Statement warning at ram.vhd(22): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ram.vhd(24): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ram.vhd(25): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (12125): Using design file rdm.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: RDM-arc
     Info (12023): Found entity 1: RDM
@@ -659,62 +524,18 @@ Warning (12125): Using design file inst.vhd, which is not specified as a design 
     Info (12022): Found design unit 1: INST-arc
     Info (12023): Found entity 1: INST
 Info (12128): Elaborating entity "INST" for hierarchy "INST:OPCODE"
-Warning (276027): Inferred dual-clock RAM node "RAM:MEMORIA|MEMORY_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "RAM:MEMORIA|MEMORY_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 4
-        Info (286033): Parameter NUMWORDS_A set to 16
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 4
-        Info (286033): Parameter NUMWORDS_B set to 16
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (12130): Elaborated megafunction instantiation "RAM:MEMORIA|altsyncram:MEMORY_rtl_0"
-Info (12133): Instantiated megafunction "RAM:MEMORIA|altsyncram:MEMORY_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "8"
-    Info (12134): Parameter "WIDTHAD_A" = "4"
-    Info (12134): Parameter "NUMWORDS_A" = "16"
-    Info (12134): Parameter "WIDTH_B" = "8"
-    Info (12134): Parameter "WIDTHAD_B" = "4"
-    Info (12134): Parameter "NUMWORDS_B" = "16"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qhd1.tdf
-    Info (12023): Found entity 1: altsyncram_qhd1
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "RAM:MEMORIA|saida[7]" feeding internal logic into a wire
 Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "cargaNZ" merged with LATCH primitive "cargaAC"
-Warning (13012): Latch rw has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
-Warning (13012): Latch memIn[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
 Warning (13012): Latch selULA[1] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
 Warning (13012): Latch selULA[0] has unsafe behavior
@@ -723,24 +544,31 @@ Warning (13012): Latch selULA[2] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
 Warning (13012): Latch cargaAC has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t0
+Warning (13012): Latch writeSignal has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t7
 Warning (13012): Latch cargaRI has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t2
-Warning (13012): Latch selMux has unsafe behavior
+Warning (13012): Latch sel has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t5
+Warning (13012): Latch cargaRDM has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t6
 Warning (13012): Latch cargaPC has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t5
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Warning (13012): Latch incrementaPC has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estado.t3
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 167 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 385 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 141 logic cells
-    Info (21064): Implemented 8 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 109 warnings
-    Info: Peak virtual memory: 4641 megabytes
-    Info: Processing ended: Mon Jun 14 10:21:40 2021
-    Info: Elapsed time: 00:00:03
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 371 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 68 warnings
+    Info: Peak virtual memory: 4628 megabytes
+    Info: Processing ended: Tue Jun 22 15:29:47 2021
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

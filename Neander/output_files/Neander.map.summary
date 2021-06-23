@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Mon Jun 14 10:21:40 2021
+Analysis & Synthesis Status : Successful - Tue Jun 22 15:29:47 2021
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : Neander
 Top-level Entity Name : Neander
 Family : Cyclone II
-Total logic elements : 134
-    Total combinational functions : 126
-    Dedicated logic registers : 30
-Total registers : 30
-Total pins : 18
+Total logic elements : 364
+    Total combinational functions : 252
+    Dedicated logic registers : 174
+Total registers : 174
+Total pins : 14
 Total virtual pins : 0
-Total memory bits : 128
+Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
